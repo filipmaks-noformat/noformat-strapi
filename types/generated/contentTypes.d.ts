@@ -788,70 +788,59 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiCategoryCategory extends Schema.CollectionType {
-  collectionName: 'categories';
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
   info: {
-    singularName: 'category';
-    pluralName: 'categories';
-    displayName: 'Category';
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String & Attribute.Required & Attribute.Unique;
-    restaurants: Attribute.Relation<
-      'api::category.category',
-      'manyToMany',
-      'api::restaurant.restaurant'
+    Content: Attribute.DynamicZone<
+      [
+        'global-components.title-and-text',
+        'global-components.custom-two-videos',
+        'global-components.featured-projects'
+      ]
     >;
+    Title: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
 
-export interface ApiRestaurantRestaurant extends Schema.CollectionType {
-  collectionName: 'restaurants';
+export interface ApiProjectProject extends Schema.CollectionType {
+  collectionName: 'projects';
   info: {
-    singularName: 'restaurant';
-    pluralName: 'restaurants';
-    displayName: 'Restaurant';
+    singularName: 'project';
+    pluralName: 'projects';
+    displayName: 'Project';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String & Attribute.Required & Attribute.Unique;
-    Description: Attribute.Blocks;
-    categories: Attribute.Relation<
-      'api::restaurant.restaurant',
-      'manyToMany',
-      'api::category.category'
-    >;
+    Title: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::restaurant.restaurant',
+      'api::project.project',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::restaurant.restaurant',
+      'api::project.project',
       'oneToOne',
       'admin::user'
     > &
@@ -877,8 +866,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::category.category': ApiCategoryCategory;
-      'api::restaurant.restaurant': ApiRestaurantRestaurant;
+      'api::page.page': ApiPagePage;
+      'api::project.project': ApiProjectProject;
     }
   }
 }

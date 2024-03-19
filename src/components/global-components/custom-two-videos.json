@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_global_components_custom_two_videos",
+  "info": {
+    "displayName": "Custom Two Videos",
+    "icon": "slideshow",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "first_video_embed_url": {
+      "type": "text"
+    },
+    "second_video_embed_url": {
+      "type": "text"
+    },
+    "first_video_cover_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cursor_label": {
+      "type": "string"
+    },
+    "progress_bar": {
+      "type": "boolean",
+      "default": true
+    },
+    "video_sound_control": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

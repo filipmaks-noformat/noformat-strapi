@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "global-components.title-and-text",
+        "global-components.custom-two-videos",
+        "global-components.featured-projects"
+      ]
+    },
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

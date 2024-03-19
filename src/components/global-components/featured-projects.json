@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_global_components_featured_projects",
+  "info": {
+    "displayName": " Featured Projects",
+    "icon": "calendar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "block_type": {
+      "type": "boolean",
+      "default": false
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
+    }
+  }
+}
